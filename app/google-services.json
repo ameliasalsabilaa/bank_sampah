@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "375154983715",
+    "firebase_url": "https://banksampahamelia-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "banksampahamelia",
+    "storage_bucket": "banksampahamelia.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375154983715:android:701f421ca75f938a75c296",
+        "android_client_info": {
+          "package_name": "com.amelia.asesmengenap.banksampah"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1sQWaCtCdgxt-hRah4BZRn6rx6KEK3nY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

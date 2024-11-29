@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="satu">#D0EBFC</color>
+    <color name="tiga">#f2b5d4</color>
+    <color name="dua">#9ac4f8</color>
+    <color name="empat">#FF686B</color>
+    <color name="lima">#FFB3C1</color>
+    <color name="enam">#FF686B</color>
+    <color name="teks">#040918</color>
+    <color name="bg">#EFF7F6</color>
+
+
+    <color name="filter_active_bg">#FFEB3B</color>
+    <color name="filter_active_border">#FFC107</color>
+    <color name="filter_inactive_bg">#E0E0E0</color>
+    <color name="filter_inactive_border">#BDBDBD</color>
+    <color name="cardunconfirm">#F4EEEE</color>
+
+    <!--    tambahan-->
+    <color name="tekscategory">#ffffff</color>
+    <color name="historibelumdikonfirmasi">#ffffff</color>
+    <color name="historiizinkan">#D0EBFC</color>
+
+
+
+</resources>

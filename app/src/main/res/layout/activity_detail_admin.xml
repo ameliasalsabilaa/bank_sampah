@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/bg"
+    android:layout_height="match_parent"
+    tools:context=".ActivityAdmin.DetailActivityAdmin">
+
+    <ScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp">
+
+                <ImageView
+                    android:id="@+id/backBtn"
+                    app:tint = "@color/tekscategory"
+                    android:layout_width="45dp"
+                    android:layout_height="40dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/navbottom_bg"
+                    android:padding="12dp"
+                    android:paddingStart="18dp"
+                    app:srcCompat="@drawable/baseline_arrow_back_ios_24" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="match_parent"
+                android:layout_height="290dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/bg_remonded"
+                android:padding="16dp"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/pic_list"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:clipToPadding="false"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/titleTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="title"
+                    android:textColor="@color/teks"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:tint="#1FB141"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/money_recommend" />
+
+                <TextView
+                    android:id="@+id/priceTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp. "
+                    android:layout_marginStart="8dp"
+                    android:textColor="@color/empat"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/descriptionTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:alpha=".6"
+                android:text="Description"
+                android:textColor="@color/teks" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/tambahBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:backgroundTint="@color/dua"
+        android:tint="@color/teks"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/baseline_add_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/ubahBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#FFEB3B"
+        android:clickable="true"
+        android:focusable="true"
+        android:tint="@color/teks"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/tambahBtn"
+        app:layout_constraintEnd_toEndOf="@+id/tambahBtn"
+        app:srcCompat="@drawable/baseline_edit_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/hapusBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#F44336"
+        android:clickable="true"
+        android:focusable="true"
+        android:tint="@color/teks"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/ubahBtn"
+        app:layout_constraintEnd_toEndOf="@+id/ubahBtn"
+        app:srcCompat="@drawable/baseline_delete_24" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

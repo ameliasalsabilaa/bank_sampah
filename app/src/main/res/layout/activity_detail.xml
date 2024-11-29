@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/bg"
+    android:layout_height="match_parent"
+    tools:context=".Activity.DetailActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/addToCartBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="40dp"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp">
+
+                <ImageView
+                    android:id="@+id/backBtn"
+                    android:layout_width="45dp"
+                    android:layout_height="40dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/navbottom_bg"
+                    android:padding="12dp"
+                    app:tint = "@color/tekscategory"
+                    android:paddingStart="18dp"
+                    app:srcCompat="@drawable/baseline_arrow_back_ios_24" />
+
+                <RelativeLayout
+                    android:layout_width="45dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/cartBtn"
+                    android:layout_gravity="center"
+                    android:padding="8dp"
+                    android:background="@drawable/navbottom_bg"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <!-- Ikon Keranjang -->
+                    <ImageView
+                        android:id="@+id/cartIcon"
+                        android:layout_width="28dp"
+                        android:layout_height="26dp"
+                        android:layout_marginTop="4dp"
+                        app:tint = "@color/tekscategory"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentTop="true"
+                        app:srcCompat="@drawable/baseline_shopping_cart_24" />
+
+                    <!-- Badge untuk jumlah item -->
+                    <TextView
+                        android:id="@+id/cartBadge"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_alignTop="@id/cartIcon"
+                        android:layout_alignEnd="@id/cartIcon"
+                        android:layout_marginBottom="2dp"
+                        android:background="@drawable/badge_background"
+                        android:elevation="4dp"
+                        android:gravity="center"
+                        android:textColor="@android:color/white"
+                        android:textSize="10sp"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="match_parent"
+                android:layout_height="290dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/bg_remonded"
+                android:padding="16dp"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/pic_list"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:clipToPadding="false"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/titleTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="title"
+                    android:textColor="@color/teks"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:tint="#1FB141"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/money_recommend" />
+
+                <TextView
+                    android:id="@+id/priceTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp. "
+                    android:layout_marginStart="8dp"
+                    android:textColor="@color/empat"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/descriptionTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:alpha=".6"
+                android:text="Description"
+                android:textColor="@color/teks" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addToCartBtn"
+        style="@android:style/Widget.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textStyle="bold"
+        android:background="@drawable/navbottom_bg"
+        android:text="KERANJANG"
+        android:textColor="@color/tekscategory"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
