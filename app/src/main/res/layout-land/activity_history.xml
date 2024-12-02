@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.HistoryActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="100dp"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="24dp">
+
+                <!-- SearchView -->
+                <android.widget.SearchView
+                    android:id="@+id/searchViewOrders"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:queryHint="Cari Riwayat Penjualan"
+                    android:iconifiedByDefault="false"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <HorizontalScrollView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fillViewport="true"
+                    app:layout_constraintTop_toBottomOf="@id/searchViewOrders"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <!-- Filter Buttons -->
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnFilterAll"
+                            android:background="@drawable/navbottom_bg2"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:text="Semua"
+                            android:textColor="@color/tekscategory" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnFilterPending"
+                            android:layout_width="200dp"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/navbottom_bg2"
+                            android:layout_marginEnd="8dp"
+                            android:text="Belum dikonfirmasi"
+                            android:textColor="@color/tekscategory"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnFilterApproved"
+                            android:background="@drawable/navbottom_bg2"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:text="Diizinkan"
+                            android:textColor="@color/tekscategory" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnFilterRejected"
+                            android:background="@drawable/navbottom_bg2"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:text="ditolak"
+                            android:textColor="@color/tekscategory"  />
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/emptyTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Belum ada data disini"
+                android:textSize="16sp"
+                android:visibility="gone"
+                android:textColor="@color/teks" />
+
+            <!-- RecyclerView for displaying filtered data -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewHistory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                tools:listitem="@layout/viewholder_history"
+                android:paddingStart="8dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="8dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/navbottom_bg">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/keBeranda"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <!-- Ikon Keranjang -->
+                        <ImageView
+                            android:id="@+id/iconberanda"
+                            app:tint="@color/tekscategory"
+                            android:layout_width="32dp"
+                            android:layout_height="30dp"
+                            app:srcCompat="@drawable/homee" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Beranda"
+                        android:alpha=".7"
+                        android:textAlignment="center"
+                        android:textColor="@color/tekscategory"
+                        android:layout_marginTop="3dp"
+                        android:textStyle="bold"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cartBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <!-- Ikon Keranjang -->
+                        <ImageView
+                            android:id="@+id/cartIcon"
+                            app:tint="@color/tekscategory"
+                            android:layout_width="32dp"
+                            android:layout_height="30dp"
+                            app:srcCompat="@drawable/baseline_shopping_cart_24" />
+
+                    </RelativeLayout>
+
+                    <!-- Teks "Keranjang" -->
+                    <TextView
+                        android:id="@+id/carttv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Keranjang"
+                        android:alpha=".7"
+                        android:textAlignment="center"
+                        android:textColor="@color/tekscategory"
+                        android:layout_marginTop="3dp"
+                        android:textStyle="bold"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/keHistory"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <!-- Ikon Keranjang -->
+                        <ImageView
+                            app:tint="@color/tekscategory"
+                            android:layout_width="32dp"
+                            android:layout_height="30dp"
+                            app:srcCompat="@drawable/riawayt" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Riwayat"
+                        android:alpha=".7"
+                        android:textAlignment="center"
+                        android:textColor="@color/tekscategory"
+                        android:layout_marginTop="3dp"
+                        android:textStyle="bold"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/keprofil"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <!-- Ikon Keranjang -->
+                        <ImageView
+                            app:tint="@color/tekscategory"
+                            android:layout_width="32dp"
+                            android:layout_height="30dp"
+                            app:srcCompat="@drawable/beranda" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Profil"
+                        android:alpha=".7"
+                        android:textAlignment="center"
+                        android:textColor="@color/tekscategory"
+                        android:layout_marginTop="3dp"
+                        android:textStyle="bold"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

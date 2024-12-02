@@ -17,6 +17,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import android.content.res.Configuration
+import androidx.recyclerview.widget.GridLayoutManager
 
 class HistoryActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHistoryBinding
@@ -42,9 +44,15 @@ class HistoryActivity : AppCompatActivity() {
             handleOrderApproval(order, isApproved)
         }
 
-        // Setup RecyclerView
-        binding.recyclerViewHistory.layoutManager = LinearLayoutManager(this)
+        val isLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+        binding.recyclerViewHistory.layoutManager = if (isLandscape) {
+            GridLayoutManager(this, 2) // Grid layout with 2 columns for landscape
+        } else {
+            LinearLayoutManager(this) // Linear layout for portrait
+        }
         binding.recyclerViewHistory.adapter = adapter
+        adapter.notifyDataSetChanged()
+        updateEmptyTextVisibility(orderList.isEmpty(), isFilter = false)
 
         binding.searchViewOrders.setOnQueryTextListener(object : android.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -91,8 +99,8 @@ class HistoryActivity : AppCompatActivity() {
 
     private fun filterOrders(query: String) {
         val filteredList = orderList.filter { order ->
-            order.namabarang.any { it.contains(query, ignoreCase = true) } || // Cari di nama barang
-                    order.username.contains(query, ignoreCase = true) ||             // Cari di username
+            order.namabarang.any { it.contains(query, ignoreCase = true) } ||
+                    order.username.contains(query, ignoreCase = true) ||
                     order.id.contains(query, ignoreCase = true)        ||
                     order.jumlahsetiapitem.any { it.toString().contains(query, ignoreCase = true) } ||
                     order.hargabarang.any { it.toString().contains(query, ignoreCase = true) } ||
@@ -122,6 +130,8 @@ class HistoryActivity : AppCompatActivity() {
                     }
                 }
                 adapter.notifyDataSetChanged()
+                updateEmptyTextVisibility(orderList.isEmpty(), isFilter = false)
+
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -141,7 +151,10 @@ class HistoryActivity : AppCompatActivity() {
 
     private fun updateEmptyTextVisibility(isEmpty: Boolean, isFilter: Boolean) {
         binding.emptyTextFilter.visibility = if (isEmpty) View.VISIBLE else View.GONE
+        binding.recyclerViewHistory.visibility = if (isEmpty) View.GONE else View.VISIBLE
+
     }
+
 
     // Example: Filter Pending Orders
     private fun showPendingOrders() {

@@ -14,7 +14,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/numberItemTxt"
         app:layout_constraintEnd_toStartOf="@+id/numberItemTxt"
         app:layout_constraintTop_toTopOf="@+id/numberItemTxt"
-        app:srcCompat="@drawable/baseline_lock_reset_24" />
+        app:srcCompat="@drawable/baseline_confirmation_number_24" />
 
     <ImageView
         android:id="@+id/pic"

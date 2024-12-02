@@ -1,11 +1,13 @@
 package com.amelia.asesmengenap.banksampah.ActivityAdmin
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import com.amelia.asesmengenap.banksampah.AdapterAdmin.OrdersAdapter
 import com.amelia.asesmengenap.banksampah.Domain.OrdersModel
 import com.amelia.asesmengenap.banksampah.R
@@ -42,8 +44,12 @@ class PerizinanActivity : AppCompatActivity() {
             handleOrderApproval(order, isApproved)
         }
 
-        // Setup RecyclerView
-        binding.recyclerViewOrders.layoutManager = LinearLayoutManager(this)
+        val isLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+        binding.recyclerViewOrders.layoutManager = if (isLandscape) {
+            GridLayoutManager(this, 2) // Grid layout with 2 columns for landscape
+        } else {
+            LinearLayoutManager(this) // Linear layout for portrait
+        }
         binding.recyclerViewOrders.adapter = adapter
 
         binding.searchViewOrders.setOnQueryTextListener(object : android.widget.SearchView.OnQueryTextListener {
@@ -78,6 +84,7 @@ class PerizinanActivity : AppCompatActivity() {
         // Set initial active button visual
         updateActiveButtonVisual(R.id.btnFilterAll)
     }
+    
 
     private fun filterOrders(query: String) {
         val filteredList = orderList.filter { order ->
